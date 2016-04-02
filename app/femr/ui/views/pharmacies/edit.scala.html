@@ -94,17 +94,16 @@
             <div id="disclaimerWrap">
                 <label for="disclaimer">
                     The patient was counseled on the risks and side effects of the medications dispensed.</label>
-                <input type="checkbox" name="disclaimer" value="1" />
+                <input type="checkbox" required name="disclaimer" value="1" />
                 <input type="hidden" name="disclaimer" value="0" />
             </div>
             <div id="submitWrap">
-                <button type="submit" id="pharmacySubmitBtn" class="fButton fRedButton fSubmitButton pull-right">
+                <button type="submit" id="pharmacySubmitBtn" onclick="isChecked()" class="fButton fRedButton fSubmitButton pull-right">
                     Submit</button>
             </div>
 
         </div>
-
-
     </div>
+
 }
 }
