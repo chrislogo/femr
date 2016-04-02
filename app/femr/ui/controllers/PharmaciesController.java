@@ -186,7 +186,6 @@ public class PharmaciesController extends Controller {
         }
 
 
-
         // Map<id of the new prescription, id of the old prescription>
         Map<Integer, Integer> prescriptionsToReplace = new HashMap<>();
         // Map<id, isCounseled>
@@ -279,6 +278,5 @@ public class PharmaciesController extends Controller {
                 ") was saved successfully.";
 
         return ok(index.render(currentUserSession, message, 0));
-
     }
 }
