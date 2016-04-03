@@ -148,4 +148,3 @@ public class CreateViewModel {
 
     public void setDateCreated(String DateCreated) { this.DateCreated = DateCreated; } //Sam Zanni
 }
-

@@ -89,6 +89,8 @@ var createUsers = {
         // Adding password constraint!
         var passwordErrors = "";
         var password = $.trim(document.forms["createForm"]["password"].value);
+        var passwordVerify = $.trim(document.forms["createForm"]["passwordVerify"].value);
+
         if(password.length < 6){
            pass = false;
         }
@@ -105,15 +107,27 @@ var createUsers = {
             pass = false;
         }
 
+        // added check if password and verify are the same before allowing submission
         if(pass === false)
         {
             if (passwordErrors != "")
                 createUsers.elements.password.next (".errors").text(passwordErrors);
+            else if (password != passwordVerify)
+            {
+                createUsers.elements.password.next(".errors").text("passwords do not match");
+                pass = false;
+            }
             else
                 createUsers.elements.password.next(".errors").text("password must have at least 6 characters with at least one upper case letter and number");
         }
         else{
-            createUsers.elements.password.next(".errors").text("");
+            if (password != passwordVerify)
+            {
+                createUsers.elements.password.next(".errors").text("passwords do not match");
+                pass = false;
+            }
+            else
+                createUsers.elements.password.next(".errors").text("");
         }
 
         //validate roles
