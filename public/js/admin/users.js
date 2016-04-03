@@ -121,6 +121,7 @@ var createUsers = {
                 createUsers.elements.password.next(".errors").text("password must have at least 6 characters with at least one upper case letter and number");
         }
         else{
+            // check pw match here also since user can change pw tp 6 char and upper case and num req but still not match
             if (password != passwordVerify)
             {
                 createUsers.elements.password.next(".errors").text("passwords do not match");
