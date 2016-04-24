@@ -17,7 +17,12 @@
             <div class="col-xs-10 col-sm-10 col-md-10 problemWrap">
                 @for(problem <- problems) {
                     <div class="problem">
-                        <input type="text" class="form-control input-sm oldProblems" value="@problem.getName" readonly/>
+                        
+                        @defining(treatmentTab.getTabFieldItemByName(null, "problem")) { problem =>
+                            <input name="tabFieldItems[@problem.getIndex].name" type="text" class="hidden" value="problem"/>
+                            <textarea rows="1" name="tabFieldItems[@problem.getIndex].value" class="form-control input-sm ">@problem.getValue</textarea>
+                        }
+
                     </div>
                 }
                 <div class="problem">

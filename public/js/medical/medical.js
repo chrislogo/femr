@@ -407,6 +407,7 @@ $(document).ready(function () {
     });
 
     typeaheadFeature.setGlobalVariableAndInitalize("/search/typeahead/diagnoses", problemFeature.newProblems.first(), 'diagnoses', true, true);
+    typeaheadFeature.setGlobalVariableAndInitalize("/search/typeahead/diagnoses", problemFeature.allProblems.first(), 'diagnoses', true, true);
 });
 
 /**
