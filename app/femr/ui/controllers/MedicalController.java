@@ -1,5 +1,7 @@
 package femr.ui.controllers;
 
+import com.avaje.ebean.Ebean;
+import com.avaje.ebean.SqlUpdate;
 import com.google.inject.Inject;
 import femr.business.services.core.*;
 import femr.common.dtos.CurrentUser;
@@ -23,6 +25,10 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 
+import femr.util.calculations.dateUtils;
+
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -383,7 +389,9 @@ public class MedicalController extends Controller {
             }
         }
 
-
+        SqlUpdate insert = Ebean.createSqlUpdate("INSERT INTO changeDiagnoses (userId, diagnosis, currDate) values (" + currentUserSession.getId() + ", "+
+                tabFieldItemsWithNoRelatedChiefComplaint.toString() + ", " + dateUtils.getCurrentDateTime().toString() + ")");
+        insert.execute();
 
         String message = "Patient information for " + patientItem.getFirstName() + " " + patientItem.getLastName() + " (id: " + patientItem.getId() + ") was saved successfully.";
 
